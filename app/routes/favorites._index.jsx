@@ -28,7 +28,7 @@ export async function loader({request, params, context}) {
   });
   let favorites = await favoritesRes.json();
   favorites = favorites.map((f) => f.productId);
-  
+
   const {nodes} = await storefront.query(PRODUCTS_BY_IDS_QUERY, {
     variables: {ids: favorites, ...paginationVariables},
   });
@@ -36,10 +36,9 @@ export async function loader({request, params, context}) {
   return json({nodes});
 }
 
-export default function Collection() {
+export default function Favorites() {
   /** @type {LoaderReturnData} */
   const {nodes} = useLoaderData();
-
   return (
     <div className="favorites">
       <h1>Favorites</h1>
