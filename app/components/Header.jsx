@@ -77,6 +77,17 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
           </NavLink>
         );
       })}
+      <NavLink
+        className="header-menu-item"
+        end
+        key={'favorites'}
+        onClick={closeAside}
+        prefetch="intent"
+        style={activeLinkStyle}
+        to={'/favorites'}
+      >
+        Favorites
+      </NavLink>
     </nav>
   );
 }
